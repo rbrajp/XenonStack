@@ -1,0 +1,47 @@
+#!/bin/bash
+
+# Updated color variables for better output formatting
+HEADER='\033[1;36m'     # Cyan for headers
+SUBHEADER='\033[1;33m'  # Yellow for subheaders
+INFO='\033[0;92m'       # Light green for information
+ERROR='\033[0;91m'      # Light red for errors
+NC='\033[0m'            # No Color
+
+# Function to display manual page
+display_manual() {
+    echo -e "${HEADER}INTENSCTL(1)                           User Commands                           INTENSCTL(1)${NC}"
+    echo -e "${SUBHEADER}NAME${NC}"
+    echo -e "${INFO}       internsctl - Custom Linux command for operations${NC}"
+    echo ""
+    echo -e "${SUBHEADER}SYNOPSIS${NC}"
+    echo -e "${INFO}       internsctl [OPTIONS]${NC}"
+    echo ""
+    echo -e "${SUBHEADER}DESCRIPTION${NC}"
+    echo -e "${INFO}       internsctl is a custom Linux command that performs various operations.${NC}"
+    echo ""
+    # Add more detailed description and usage guidelines here
+}
+
+# Function to display help
+display_help() {
+    echo -e "${SUBHEADER}Usage: internsctl [OPTIONS]${NC}"
+    echo ""
+    echo -e "${SUBHEADER}Options:${NC}"
+    echo -e "${INFO}  --help      ${NC}Display help information"
+    echo -e "${INFO}  --version   ${NC}Display command version"
+    # Add more usage examples and explanations here
+}
+
+# Function to display version
+display_version() {
+    echo -e "${INFO}internsctl v0.1.0${NC}"
+}
+
+# Check for arguments
+if [ "$1" == "--help" ]; then
+    display_help
+elif [ "$1" == "--version" ]; then
+    display_version
+else
+    display_manual
+fi
